@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="董梓涵的个人主页。中国科学技术大学网络空间安全学院信息安全专业本科生，关注人工智能安全、大模型安全评测与多模态可信分析。">
+  <meta name="description" content="董梓涵的个人主页。中国科学技术大学网络空间安全学院信息安全专业本科生，对人工智能安全与计算机视觉感兴趣。">
   <meta name="theme-color" content="#004780">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23004780'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='serif' font-size='40' fill='white'%3ED%3C/text%3E%3C/svg%3E">
   <link rel="canonical" href="https://alphazero78.github.io/">
@@ -43,8 +43,8 @@
     nav a:hover { text-decoration: underline; }
     .layout { max-width: 1120px; margin: auto; padding: 58px 40px 72px; display: grid; grid-template-columns: 242px minmax(0, 1fr); gap: 68px; align-items: start; }
     .profile { position: sticky; top: 36px; }
-    .portrait-frame { width: 190px; height: 242px; overflow: hidden; border-radius: 3px; background: var(--soft); }
-    .portrait { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 36%; }
+    .portrait-frame { width: 190px; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 3px; background: #fff; }
+    .portrait { display: block; width: 100%; height: 100%; object-fit: contain; }
     h1 { color: var(--blue-dark); margin: 25px 0 0; font-size: 32px; font-weight: 700; line-height: 1.45; letter-spacing: .08em; }
     .english-name { display: block; margin-top: 2px; font-family: Georgia, "Times New Roman", serif; font-size: 22px; font-weight: 400; letter-spacing: .015em; }
     .profile-role { margin: 20px 0 0; line-height: 1.8; font-size: 14px; }
@@ -83,20 +83,13 @@
     .project-links a { text-decoration: none; }
     .project-links a:hover { text-decoration: underline; }
     .arrow { margin-left: 3px; }
-    .reading-list { padding: 0; margin: 0; list-style: none; counter-reset: reading; }
-    .reading-list li { counter-increment: reading; display: grid; grid-template-columns: 25px 1fr; column-gap: 10px; margin-top: 19px; }
-    .reading-list li::before { content: "0" counter(reading); font-size: 12px; color: #7c94a9; padding-top: 3px; font-variant-numeric: tabular-nums; }
-    .paper-title { font-family: Georgia, "Times New Roman", serif; font-size: 16px; line-height: 1.65; text-decoration: none; }
-    .paper-title:hover { text-decoration: underline; }
-    .paper-venue { display: block; color: var(--muted); font-size: 11px; margin: 3px 0 5px; letter-spacing: .025em; }
-    .paper-note { font-size: 13px; color: var(--muted); line-height: 1.85; }
     .site-footer { max-width: 1040px; margin: auto; padding: 20px 0 30px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; color: var(--muted); font-size: 11px; letter-spacing: .025em; }
     .site-footer a { text-decoration: none; }
     @media (max-width: 900px) {
       .layout { grid-template-columns: 205px minmax(0, 1fr); gap: 38px; padding: 40px 28px 55px; }
       .header-inner { padding: 20px 28px; }
       .site-footer { margin: 0 28px; }
-      .portrait-frame { width: 172px; height: 224px; }
+      .portrait-frame { width: 172px; }
       .entry-heading { flex-wrap: wrap; gap: 3px 12px; }
       .profile-links { font-size: 12px; }
       h2 { gap: 10px; }
@@ -107,7 +100,7 @@
       nav a { padding: 3px 0; }
       .layout { display: block; padding: 32px 22px 45px; }
       .profile { position: static; display: grid; grid-template-columns: minmax(0, 1fr) 116px; gap: 0 20px; padding-bottom: 28px; margin-bottom: 30px; border-bottom: 1px solid var(--line); }
-      .portrait-frame { width: 116px; height: 152px; grid-column: 2; grid-row: 1 / 4; }
+      .portrait-frame { width: 116px; grid-column: 2; grid-row: 1 / 4; }
       h1 { grid-column: 1; grid-row: 1; margin: 0; font-size: 29px; }
       .english-name { font-size: 19px; }
       .profile-role { grid-column: 1; grid-row: 2; font-size: 12px; margin: 13px 0 0; }
@@ -131,15 +124,15 @@
       <a class="wordmark" href="#top" lang="en">ZIHAN DONG / USTC</a>
       <nav aria-label="页面导航">
         <a href="#about">关于</a>
+        <a href="#interests">研究兴趣</a>
         <a href="#projects">开源参与</a>
-        <a href="#reading">研究关注</a>
         <a href="mailto:dzh_alpha@mail.ustc.edu.cn">联系</a>
       </nav>
     </div>
   </header>
   <div class="layout" id="top">
     <aside class="profile" aria-label="个人信息">
-      <div class="portrait-frame"><img class="portrait" src="portrait.png" width="1086" height="1448" alt="董梓涵的个人照片" fetchpriority="high"></div>
+      <div class="portrait-frame"><img class="portrait" src="portrait.png?v=original-20260910" width="420" height="560" alt="董梓涵的原图裁切照片" fetchpriority="high"></div>
       <h1>董梓涵<span class="english-name" lang="en">Zihan Dong</span></h1>
       <p class="profile-role">中国科学技术大学<span>网络空间安全学院</span><span>信息安全 · 本科生</span></p>
       <div class="profile-links">
@@ -151,10 +144,14 @@
     <main id="main-content">
       <section id="about" aria-labelledby="about-heading">
         <h2 id="about-heading">关于我 <span class="en" lang="en">ABOUT</span></h2>
-        <p class="intro">你好，我是董梓涵，现为中国科学技术大学信息安全专业本科生。我关注<strong>人工智能安全</strong>，希望在课程学习与开源实践中逐步建立研究和工程基础。</p>
-        <p>目前感兴趣的问题包括大语言模型的提示注入、越狱风险与安全评测，以及多模态模型的可靠性与生成内容识别。希望进一步学习如何设计可复现的实验，分析模型在不同场景中的安全边界。</p>
+        <p class="intro">你好，我是董梓涵，现为中国科学技术大学信息安全专业本科生。这里记录我的学习方向、开源参与和校园实践。</p>
+      </section>
+      <section id="interests" aria-labelledby="interests-heading">
+        <h2 id="interests-heading">研究兴趣 <span class="en" lang="en">INTERESTS</span></h2>
+        <p>我对人工智能安全与计算机视觉感兴趣，关注视觉识别模型的鲁棒性、对抗攻击与防御，以及大语言模型和多模态系统的可靠性与安全评测。</p>
+        <p>希望通过课程学习、开源实践与可复现实验，逐步探索可信人工智能的方法。</p>
         <ul class="interests" aria-label="研究兴趣">
-          <li>人工智能安全</li><li>大模型安全评测</li><li>多模态可信分析</li>
+          <li>人工智能安全</li><li>计算机视觉</li><li>模型可靠性</li>
         </ul>
       </section>
       <section id="education" aria-labelledby="education-heading">
@@ -189,14 +186,6 @@
         <h2 id="service-heading">校园实践 <span class="en" lang="en">SERVICE</span></h2>
         <div class="entry-heading"><h3>校团委 · 青年权益中心</h3><span class="date">2025.09 — 2026.09</span></div>
         <p class="detail">联络部副部长</p>
-      </section>
-      <section id="reading" aria-labelledby="reading-heading">
-        <h2 id="reading-heading">关注的研究 <span class="en" lang="en">RESEARCH INTERESTS</span></h2>
-        <p class="section-note">与当前兴趣相关、希望进一步学习的研究工作。</p>
-        <ol class="reading-list">
-          <li><div><a class="paper-title" href="https://aclanthology.org/2024.findings-emnlp.347/" lang="en">Llama SLayer 8B: Shallow Layers Hold the Key to Knowledge Injection</a><span class="paper-venue" lang="en">Findings of EMNLP 2024</span><p class="paper-note">关注不同模型层在知识注入中的作用，以及选择性增强浅层如何帮助大模型学习领域知识。</p></div></li>
-          <li><div><a class="paper-title" href="https://openaccess.thecvf.com/content/CVPR2026/html/Gong_Cross-modal_Representation_Learning_for_Diffusion-generated_Image_Detection_CVPR_2026_paper.html" lang="en">Cross-modal Representation Learning for Diffusion-generated Image Detection</a><span class="paper-venue" lang="en">CVPR 2026</span><p class="paper-note">关注 RGB 与邻域像素关系的互补性，以及跨模态对比学习、互蒸馏在生成图像识别中的应用。</p></div></li>
-        </ol>
       </section>
     </main>
   </div>
