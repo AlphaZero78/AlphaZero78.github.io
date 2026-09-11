@@ -14,10 +14,11 @@ export class StartupGate {
   private status: HTMLElement;
   constructor(private options: EntryOptions) {
     const { root } = options;
+    root.dataset.entry = "loading";
     root.setAttribute("role", "dialog");
     root.setAttribute("aria-modal", "true");
     root.setAttribute("aria-label", "进入董梓涵个人档案终端");
-    root.insertAdjacentHTML("beforeend", '<div class="entry-controls"><button class="entry-start" disabled>正在准备终端…</button><button class="entry-silent" hidden>跳过开场，直接浏览 →</button><p class="entry-status" role="status">资源就绪后即可进入</p></div>');
+    root.insertAdjacentHTML("beforeend", '<div class="entry-controls"><div class="entry-primary-actions" inert><a class="entry-reading" href="./profile.html">查看个人概览 <span aria-hidden="true">↗</span></a><button class="entry-start" disabled>正在准备终端…</button></div><button class="entry-silent" hidden>跳过开场，直接浏览 →</button><p class="entry-status" role="status">资源就绪后即可进入</p></div>');
     this.button = root.querySelector<HTMLButtonElement>(".entry-start")!;
     this.silent = root.querySelector<HTMLButtonElement>(".entry-silent")!;
     this.status = root.querySelector<HTMLElement>(".entry-status")!;
@@ -34,7 +35,7 @@ export class StartupGate {
     root.addEventListener("keydown", event => {
       event.stopPropagation();
       if (event.key === "Tab") {
-        const buttons = [...root.querySelectorAll<HTMLElement>('a[href],button:not(:disabled):not([hidden])')];
+        const buttons = [...root.querySelectorAll<HTMLElement>('a[href],button:not(:disabled):not([hidden])')].filter(button => !button.closest("[inert]") && getComputedStyle(button).visibility !== "hidden");
         if (!buttons.length) { event.preventDefault(); return; }
         const index = buttons.indexOf(document.activeElement as HTMLElement);
         event.preventDefault();
@@ -48,6 +49,7 @@ export class StartupGate {
   ready() {
     this.state = "waiting";
     this.options.root.dataset.entry = "waiting";
+    this.options.root.querySelector<HTMLElement>(".entry-primary-actions")!.inert = false;
     this.button.disabled = false;
     this.button.textContent = "进入个人档案 →";
     this.silent.hidden = false;

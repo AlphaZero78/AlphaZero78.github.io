@@ -79,7 +79,7 @@ $("#stage").innerHTML = `
   <footer class="system-footer"><span><i class="status-light"></i> PERSONAL HOMEPAGE · ONLINE</span><span>ZIHAN DONG <i>／</i> <span id="clock">00:00:00</span></span><button data-action="replay" title="重播启动流程">REINITIALIZE ↗</button></footer>
   <div id="pwa-update-notice" class="pwa-update-notice" role="status" hidden><span>新版本已就绪</span><button data-pwa-action="update">更新并重启 ↻</button></div>
   <div id="modal-root"></div><div id="toast" class="toast" role="status"></div>
-  <div id="loading" class="loading"><div class="entry-shell"><div class="entry-introduction"><div class="entry-kicker">PERSONAL ARCHIVE <span>PERSONAL HOMEPAGE / 1.0</span></div><h1>董梓涵<small>ZIHAN DONG</small></h1><p class="entry-description">这里是董梓涵的个人主页。</p><a class="entry-reading" href="./profile.html">查看个人概览 <span aria-hidden="true">↗</span></a></div></div><span>CONNECTING TO PERSONAL ARCHIVE</span><i></i></div>
+  <div id="loading" class="loading"><div class="entry-shell"><div class="entry-introduction"><div class="entry-kicker">PERSONAL ARCHIVE <span>PERSONAL HOMEPAGE / 1.0</span></div><h1>董梓涵<small>ZIHAN DONG</small></h1><p class="entry-description">这里是董梓涵的个人主页。</p></div></div><span>CONNECTING TO PERSONAL ARCHIVE</span><i></i></div>
 `;
 
 $("#boot-background").insertAdjacentHTML(

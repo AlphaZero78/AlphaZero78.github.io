@@ -76,6 +76,14 @@
   .entry-start { min-width: 230px; font-size: 13px; }
 }
 
+.entry-primary-actions { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.loading[data-entry="loading"] .entry-primary-actions { visibility: hidden; }
+.entry-primary-actions :is(.entry-reading, .entry-start) { display: flex; align-items: center; justify-content: center; box-sizing: border-box; width: 250px; min-width: 0; max-width: calc(100vw - 52px); height: 48px; min-height: 48px; padding: 0 18px; margin: 0; gap: 10px; font-size: 15px; font-weight: 500; letter-spacing: .1em; line-height: 1; }
+.entry-primary-actions .entry-reading span { font-size: inherit; }
+@media (max-width: 650px) {
+  .entry-primary-actions :is(.entry-reading, .entry-start) { width: 230px; font-size: 13px; }
+}
+
 /* The overview is a primary route, including when the 3D view is unavailable. */
 .entry-reading { display: flex; align-items: center; justify-content: space-between; gap: 24px; width: min(100%, 350px); box-sizing: border-box; min-height: 52px; padding: 13px 22px; margin-top: 28px; background: #a75415; border: 1px solid #a75415; color: #fffaf2; font-size: 16px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 14px #59361718; }
 .entry-reading:hover { background: #87400e; border-color: #87400e; }
