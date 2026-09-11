@@ -10,7 +10,7 @@ const files=all.map(path=>path.replaceAll('\\','/')).filter(path=>
   path==='index.html'||path==='profile.html'||path==='portrait.png'||path==='manifest.webmanifest'||path==='favicon.svg'||
   /^(assets|icons|archives|licenses)\/[^/]+\.[^/]+$/.test(path)||
   /^fonts\/.*\.(woff2|pdf|txt|json|md)$/.test(path)||
-  /^audio\/(atmosphere|motif|pulse)\.ogg$/.test(path)
+  path === "audio/controls-wishes.mp3"
 ).filter(path=>!/^assets\/archive-(cassette|assembly)\.glb$/.test(path)).sort();
 if(!files.some(path=>/^assets\/main-.*\.js$/.test(path)))throw Error('Build the application before generating the offline cache.');
 const worker=await readFile('scripts/pwa-worker.js','utf8');

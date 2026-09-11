@@ -1,7 +1,5 @@
-# Audio credits
+# Music source
 
-The three Ogg stems (`atmosphere`, `motif`, `pulse`) are the original programmatically composed music from LBEILC/RhineLabUI, distributed under its MIT license. Score data is retained in `score.json`; its synthesis source is `scripts/render-audio.mjs`.
+The only playback asset is `controls-wishes.mp3`, converted at 256 kbps from the user-provided `Control's Wishes.flac`. The original file is unchanged. This recording is user-supplied third-party content and is not covered by the repository MIT license.
 
-Sound and music are enabled by default, matching the upstream entry experience. Playback starts after the entry button is activated. Silent entry skips the opening for this visit only; explicit audio preferences are saved separately in Settings (audio-v2). Legacy automatic mute values are reset once.
-
-Typing tones are synthesized directly in `src/audio.ts`. The upstream promotional-video typing samples are not included.
+Playback begins on either entry button and loops continuously across the opening and archive scenes. All synthesized UI and opening effects and the former three-stem soundtrack have been removed from playback.

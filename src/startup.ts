@@ -1,6 +1,5 @@
 type EntryOptions = {
   root: HTMLElement;
-  audible: () => boolean;
   unlock: () => Promise<boolean>;
   cancel: () => void;
   start: (silent: boolean, skipBoot?: boolean) => void;
@@ -20,7 +19,7 @@ export class StartupGate {
     root.setAttribute("role", "dialog");
     root.setAttribute("aria-modal", "true");
     root.setAttribute("aria-label", "进入董梓涵个人档案终端");
-    root.insertAdjacentHTML("beforeend", '<div class="entry-controls"><div class="entry-primary-actions" inert><a class="entry-reading" data-page-transition href="./profile.html">查看个人概览 <span aria-hidden="true">↗</span></a><button class="entry-start" disabled>正在准备终端…</button></div><button class="entry-silent" hidden>无声进入 · 跳过开场 →</button><p class="entry-status" role="status">资源就绪后即可进入</p></div>');
+    root.insertAdjacentHTML("beforeend", '<div class="entry-controls"><div class="entry-primary-actions" inert><a class="entry-reading" data-page-transition href="./profile.html">查看个人概览 <span aria-hidden="true">↗</span></a><button class="entry-start" disabled>正在准备终端…</button></div><button class="entry-silent" hidden>跳过开场 →</button><p class="entry-status" role="status">资源就绪后即可进入</p></div>');
     this.button = root.querySelector<HTMLButtonElement>(".entry-start")!;
     this.silent = root.querySelector<HTMLButtonElement>(".entry-silent")!;
     this.status = root.querySelector<HTMLElement>(".entry-status")!;
@@ -29,11 +28,7 @@ export class StartupGate {
       const clicked = event.target instanceof Element ? event.target.closest("button") : null;
       if (clicked !== this.button && clicked !== this.silent) return;
       if (this.state === "loading" || this.state === "started") return;
-      if (clicked === this.silent) {
-        this.request++;
-        options.cancel();
-        this.finish(true, true);
-      } else if (this.state === "waiting" || this.state === "error") void this.enter();
+      if (this.state === "waiting" || this.state === "error") void this.enter(clicked === this.silent);
     });
     root.addEventListener("keydown", event => {
       event.stopPropagation();
@@ -59,18 +54,17 @@ export class StartupGate {
     this.button.textContent = "进入个人档案 →";
     this.silent.hidden = false;
     this.options.root.querySelector(":scope > span")!.textContent = "PERSONAL ARCHIVE / READY";
-    this.status.textContent = this.options.audible() ? "点击进入后播放开场音效与配乐" : "声音已关闭，将无声播放开场";
+    this.status.textContent = "";
     this.options.root.focus({ preventScroll: true });
   }
-  private async enter() {
-    if (!this.options.audible()) { this.finish(false); return; }
+  private async enter(skipBoot = false) {
     const request = ++this.request;
     this.state = "starting";
     this.options.root.dataset.entry = "starting";
     // aria-disabled preserves keyboard focus while repeated input is ignored.
     this.button.setAttribute("aria-disabled", "true");
-    this.button.textContent = "正在准备声音…";
-    this.status.textContent = "准备完成后开始播放";
+    this.button.textContent = "正在进入…";
+    this.status.textContent = "";
     this.silent.hidden = false;
     let timer: ReturnType<typeof setTimeout> | undefined;
     try {
@@ -79,14 +73,14 @@ export class StartupGate {
         new Promise<boolean>(resolve => { timer = setTimeout(() => resolve(false), 20000); }),
       ]);
       if (request !== this.request) return;
-      if (unlocked && !document.hidden) this.finish(false);
+      if (unlocked && !document.hidden) this.finish(false, skipBoot);
       else {
         this.options.cancel();
         this.state = "error";
         this.options.root.dataset.entry = "error";
         this.button.removeAttribute("aria-disabled");
-        this.button.textContent = "重试声音并进入 →";
-        this.status.textContent = "声音暂未就绪，请重试或无声进入";
+        this.button.textContent = "重试进入 →";
+        this.status.textContent = "音乐载入失败，请重试";
       }
     } catch {
       if (request !== this.request) return;
@@ -94,8 +88,8 @@ export class StartupGate {
       this.state = "error";
       this.options.root.dataset.entry = "error";
       this.button.removeAttribute("aria-disabled");
-      this.button.textContent = "重试声音并进入 →";
-      this.status.textContent = "声音暂未就绪，请重试或无声进入";
+      this.button.textContent = "重试进入 →";
+      this.status.textContent = "音乐载入失败，请重试";
     } finally { clearTimeout(timer); }
   }
   private finish(silent: boolean, skipBoot = false) {

@@ -144,8 +144,8 @@ const prefs = {
   reduced: matchMedia("(prefers-reduced-motion: reduce)").matches,
   quality: true,
   ...storedPrefs,
-  // v1 also stored automatic silent-entry choices; v2 records explicit settings.
-  ...readLocal("alphazero-rhine-audio-v2", { sound: true, music: true, soundVolume: .55, musicVolume: .5 }),
+  // The single-track player has independent preferences from the previous mix.
+  ...readLocal("alphazero-rhine-audio-v3", { sound: false, music: true, soundVolume: 0, musicVolume: .5 }),
   rendering: normalizeQuality(readLocal<RenderQuality>("alphazero-rhine-rendering-v2", qualityPresets.performance)),
 };
 const rollingMotion = {
@@ -212,7 +212,6 @@ $("#stage").inert = true;
 $(".mobile-entry").inert = true;
 const entry = !reviewEntry ? new StartupGate({
   root: loading,
-  audible: () => (prefs.sound && prefs.soundVolume > 0) || (prefs.music && prefs.musicVolume > 0),
   unlock: () => audio.unlock(),
   cancel: () => audio.cancelEntry(),
   start: (silent, skipBoot) => completeStartup(silent, skipBoot),
@@ -234,7 +233,7 @@ function recordAccess() {
 }
 function saveAudioPrefs(explicit = false) {
   if (explicit) {
-    try { localStorage.setItem("alphazero-rhine-audio-v2", JSON.stringify({ sound: prefs.sound, music: prefs.music, soundVolume: prefs.soundVolume, musicVolume: prefs.musicVolume })); } catch {}
+    try { localStorage.setItem("alphazero-rhine-audio-v3", JSON.stringify({ sound: prefs.sound, music: prefs.music, soundVolume: prefs.soundVolume, musicVolume: prefs.musicVolume })); } catch {}
   }
   try {
     localStorage.setItem("alphazero-rhine-settings-v1", JSON.stringify(prefs));
