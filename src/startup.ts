@@ -24,9 +24,10 @@ export class StartupGate {
     this.status = root.querySelector<HTMLElement>(".entry-status")!;
     root.addEventListener("click", event => {
       event.stopPropagation();
-      if ((event.target as Element).closest("a")) return;
+      const clicked = event.target instanceof Element ? event.target.closest("button") : null;
+      if (clicked !== this.button && clicked !== this.silent) return;
       if (this.state === "loading" || this.state === "started") return;
-      if ((event.target as Element).closest(".entry-silent")) {
+      if (clicked === this.silent) {
         this.request++;
         options.cancel();
         this.finish(true, true);

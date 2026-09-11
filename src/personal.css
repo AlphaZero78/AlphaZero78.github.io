@@ -41,7 +41,8 @@
 .loading > i { width: min(360px, calc(100vw - 64px)); margin-top: 16px; height: 2px; }
 .loading > i::after { background: #c06c2b; }
 .entry-controls { margin-top: 24px; }
-.entry-start { padding: 13px 38px; min-width: 250px; color: #e8e5e1; background: #30362d; border: 1px solid #30362d; font-size: 15px; letter-spacing: .1em; }
+.entry-start { padding: 13px 38px; min-width: 250px; color: #e8e5e1; background: #30362d; border: 0; font-size: 15px; letter-spacing: .1em; }
+.entry-start:focus-visible { outline: none; background: #444b3c; }
 .entry-start:hover { background: #444b3c; }
 .entry-start:disabled { color: #7b776a; background: transparent; border-color: #aaa394; }
 .entry-silent { margin-top: 7px; text-decoration: none; color: #7f542d; font-size: 12px; }
