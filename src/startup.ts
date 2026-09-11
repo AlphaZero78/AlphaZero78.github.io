@@ -15,6 +15,7 @@ export class StartupGate {
   constructor(private options: EntryOptions) {
     const { root } = options;
     root.dataset.entry = "loading";
+    root.tabIndex = -1;
     root.setAttribute("role", "dialog");
     root.setAttribute("aria-modal", "true");
     root.setAttribute("aria-label", "进入董梓涵个人档案终端");
@@ -40,7 +41,9 @@ export class StartupGate {
         if (!buttons.length) { event.preventDefault(); return; }
         const index = buttons.indexOf(document.activeElement as HTMLElement);
         event.preventDefault();
-        buttons[(index + (event.shiftKey ? buttons.length - 1 : 1)) % buttons.length].focus();
+        const next = index < 0 ? (event.shiftKey ? buttons.length - 1 : 0)
+          : (index + (event.shiftKey ? buttons.length - 1 : 1)) % buttons.length;
+        buttons[next].focus();
       }
       // Let native buttons activate on Enter/Space, and never leak this event
       // to the terminal's Enter-to-skip handler.
@@ -56,7 +59,7 @@ export class StartupGate {
     this.silent.hidden = false;
     this.options.root.querySelector(":scope > span")!.textContent = "PERSONAL ARCHIVE / READY";
     this.status.textContent = "可播放开场，或直接进入三维档案";
-    this.button.focus({ preventScroll: true });
+    this.options.root.focus({ preventScroll: true });
   }
   private async enter() {
     const request = ++this.request;
