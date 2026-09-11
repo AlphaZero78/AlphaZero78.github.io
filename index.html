@@ -16,13 +16,15 @@
   </head>
   <body>
     <script type="module">
-      if (["localhost", "127.0.0.1", "[::1]"].includes(location.hostname) && "serviceWorker" in navigator) {
+      if ("serviceWorker" in navigator) {
+        try {
         const scope = new URL("./", location.href).href;
         for (const registration of await navigator.serviceWorker.getRegistrations()) {
           if (registration.scope === scope) await registration.unregister();
         }
         const prefix = `alphazero-archive:${new URL(scope).pathname}:`;
         for (const key of await caches.keys()) if (key.startsWith(prefix)) await caches.delete(key);
+        } catch { /* The page also works when browser storage is unavailable. */ }
       }
     </script>
     <main id="viewport"><div id="stage"></div></main>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>更新个人主页</title>
+<p>正在载入最新主页…</p>
+<script>
+(async () => {
+  const scope = new URL("./", location.href);
+  try {
+    if ("serviceWorker" in navigator) {
+      for (const registration of await navigator.serviceWorker.getRegistrations()) {
+        if (registration.scope === scope.href) await registration.unregister();
+      }
+    }
+    const prefix = `alphazero-archive:${scope.pathname}:`;
+    for (const key of await caches.keys()) if (key.startsWith(prefix)) await caches.delete(key);
+  } finally {
+    scope.searchParams.set("update", String(Date.now()));
+    location.replace(scope.href);
+  }
+})();
+</script>
+<noscript><a href="./profile.html">查看个人概览</a></noscript>
+</html>
