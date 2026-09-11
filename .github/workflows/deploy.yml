@@ -1,0 +1,50 @@
+name: Publish personal homepage
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: actions/configure-pages@v5
+      - run: npm ci
+      - run: npm run build
+      - name: Validate website
+        run: |
+          npm run check:content
+          npm run check:viewport
+          node --experimental-strip-types --test scripts/check-archive-journey.mjs scripts/check-render-budget.mjs scripts/check-redaction-timing.mjs
+          npm run check:release
+      - name: Record deployed revision
+        run: node --input-type=module -e "import {writeFileSync} from 'node:fs'; writeFileSync('dist/deployment.json', JSON.stringify({revision:process.env.GITHUB_SHA, version:'1.0.0'}));"
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@v4

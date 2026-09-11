@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="董梓涵的个人主页。中国科学技术大学网络空间安全学院信息安全专业本科生，对人工智能安全与计算机视觉感兴趣。">
+  <meta name="theme-color" content="#004780">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23004780'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='serif' font-size='40' fill='white'%3ED%3C/text%3E%3C/svg%3E">
+  <link rel="canonical" href="https://alphazero78.github.io/profile.html">
+  <title>个人概览 · 董梓涵 Zihan Dong</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --blue: #004780;
+      --blue-dark: #173d60;
+      --ink: #26394a;
+      --muted: #627184;
+      --line: #dce4eb;
+      --paper: #fff;
+      --soft: #f2f6f9;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 32px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+      font-size: 15px;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    a:hover { color: #0075ba; }
+    a:focus-visible { outline: 3px solid #2085c4; outline-offset: 5px; border-radius: 2px; }
+    .skip-link { position: absolute; left: 16px; top: -80px; padding: 8px 16px; background: var(--paper); z-index: 10; }
+    .skip-link:focus { top: 12px; }
+    .site-header { border-top: 5px solid var(--blue); border-bottom: 1px solid var(--line); }
+    .header-inner { max-width: 1120px; margin: auto; padding: 22px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .wordmark { font-size: 13px; font-weight: 650; letter-spacing: .07em; color: var(--blue-dark); text-decoration: none; }
+    nav { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; }
+    nav a { color: var(--muted); font-size: 13px; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .layout { max-width: 1120px; margin: auto; padding: 58px 40px 72px; display: grid; grid-template-columns: 242px minmax(0, 1fr); gap: 68px; align-items: start; }
+    .profile { position: sticky; top: 36px; }
+    .portrait-frame { width: 190px; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 3px; background: #fff; }
+    .portrait { display: block; width: 100%; height: 100%; object-fit: contain; }
+    h1 { color: var(--blue-dark); margin: 25px 0 0; font-size: 32px; font-weight: 700; line-height: 1.45; letter-spacing: .08em; }
+    .english-name { display: block; margin-top: 2px; font-family: Georgia, "Times New Roman", serif; font-size: 22px; font-weight: 400; letter-spacing: .015em; }
+    .profile-role { margin: 20px 0 0; line-height: 1.8; font-size: 14px; }
+    .profile-role span { display: block; color: var(--muted); }
+    .profile-links { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin: 25px 0 0; font-size: 13px; }
+    .profile-links a { overflow-wrap: anywhere; text-decoration: none; }
+    .profile-links a:hover { text-decoration: underline; }
+    .profile-links svg { width: 15px; height: 15px; margin-right: 8px; vertical-align: -2px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .profile-footnote { margin: 30px 0 0; padding-top: 17px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); letter-spacing: .04em; }
+    main { min-width: 0; }
+    section + section { margin-top: 42px; }
+    h2 { display: flex; align-items: center; gap: 15px; margin: 0 0 20px; color: var(--blue-dark); font-size: 20px; font-weight: 650; letter-spacing: .04em; line-height: 1.4; }
+    h2::after { content: ""; height: 1px; flex: 1; background: var(--line); }
+    h2 .en { font-size: 11px; font-weight: 500; color: var(--muted); letter-spacing: .08em; }
+    p { margin: 0 0 12px; }
+    p:last-child { margin-bottom: 0; }
+    .intro { font-size: 16px; line-height: 1.95; }
+    .intro strong { font-weight: 600; color: var(--blue-dark); }
+    .interests { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+    .interests li { border: 1px solid #cfdde8; border-radius: 3px; padding: 4px 11px; color: var(--blue); background: #f8fafc; font-size: 12px; line-height: 1.7; }
+    .entry-heading { display: flex; gap: 12px; justify-content: space-between; align-items: baseline; }
+    h3 { margin: 0; color: var(--blue-dark); font-size: 16px; font-weight: 650; line-height: 1.7; }
+    .date { color: var(--muted); font-size: 12px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .detail { color: var(--muted); font-size: 14px; margin-top: 4px; }
+    .courses { margin-top: 13px; font-size: 13px; color: var(--muted); }
+    .course-label { color: var(--ink); margin-right: 8px; }
+    .section-note { font-size: 13px; color: var(--muted); margin: -5px 0 20px; }
+    .project { padding: 0 0 23px; margin-bottom: 22px; border-bottom: 1px solid var(--line); }
+    .project:last-child { padding-bottom: 0; margin-bottom: 0; border: 0; }
+    .project h3 a { color: inherit; text-decoration: none; }
+    .project h3 a:hover { text-decoration: underline; }
+    .project-kind { font-size: 11px; color: var(--muted); font-weight: 500; white-space: nowrap; }
+    .project p { margin-top: 7px; font-size: 14px; }
+    .contribution { padding-left: 13px; border-left: 2px solid #b5cce0; }
+    .project-links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 11px; font-size: 12px; }
+    .project-links a { text-decoration: none; }
+    .project-links a:hover { text-decoration: underline; }
+    .arrow { margin-left: 3px; }
+    .site-footer { max-width: 1040px; margin: auto; padding: 20px 0 30px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; color: var(--muted); font-size: 11px; letter-spacing: .025em; }
+    .site-footer a { text-decoration: none; }
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 205px minmax(0, 1fr); gap: 38px; padding: 40px 28px 55px; }
+      .header-inner { padding: 20px 28px; }
+      .site-footer { margin: 0 28px; }
+      .portrait-frame { width: 172px; }
+      .entry-heading { flex-wrap: wrap; gap: 3px 12px; }
+      .profile-links { font-size: 12px; }
+      h2 { gap: 10px; }
+    }
+    @media (max-width: 650px) {
+      .header-inner { align-items: flex-start; padding: 17px 22px; gap: 13px; flex-direction: column; }
+      nav { gap: 22px; }
+      nav a { padding: 3px 0; }
+      .layout { display: block; padding: 32px 22px 45px; }
+      .profile { position: static; display: grid; grid-template-columns: minmax(0, 1fr) 116px; gap: 0 20px; padding-bottom: 28px; margin-bottom: 30px; border-bottom: 1px solid var(--line); }
+      .portrait-frame { width: 116px; grid-column: 2; grid-row: 1 / 4; }
+      h1 { grid-column: 1; grid-row: 1; margin: 0; font-size: 29px; }
+      .english-name { font-size: 19px; }
+      .profile-role { grid-column: 1; grid-row: 2; font-size: 12px; margin: 13px 0 0; }
+      .profile-links { grid-column: 1 / -1; margin-top: 20px; gap: 6px; font-size: 13px; }
+      .profile-footnote { display: none; }
+      h2 { font-size: 19px; gap: 10px; }
+      h2 .en { font-size: 10px; }
+      section + section { margin-top: 34px; }
+      .intro { font-size: 15px; }
+      .interests { margin-top: 18px; gap: 6px; }
+      .interests li { font-size: 11px; padding: 4px 8px; }
+      .site-footer { margin: 0 22px; padding-bottom: 22px; flex-wrap: wrap; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳转到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="#top" lang="en">ZIHAN DONG / USTC</a>
+      <nav aria-label="页面导航"><a href="./index.html">三维主页</a>
+        <a href="#about">关于</a>
+        <a href="#interests">研究兴趣</a>
+        <a href="#projects">开源参与</a>
+        <a href="mailto:dzh_alpha@mail.ustc.edu.cn">联系</a>
+      </nav>
+    </div>
+  </header>
+  <div class="layout" id="top">
+    <aside class="profile" aria-label="个人信息">
+      <div class="portrait-frame"><img class="portrait" src="portrait.png?v=shoulders-light-20260910" width="570" height="760" alt="董梓涵的原图裁切照片" fetchpriority="high"></div>
+      <h1>董梓涵<span class="english-name" lang="en">Zihan Dong</span></h1>
+      <p class="profile-role">中国科学技术大学<span>网络空间安全学院</span><span>信息安全 · 本科生</span></p>
+      <div class="profile-links">
+        <a href="mailto:dzh_alpha@mail.ustc.edu.cn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"></rect><path d="m3 6 9 7 9-7"></path></svg>dzh_alpha@mail.ustc.edu.cn</a>
+        <a href="https://github.com/AlphaZero78"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5-6 7 6 7m8-14 6 7-6 7m-2-16-4 18"></path></svg>GitHub / AlphaZero78</a>
+      </div>
+      <p class="profile-footnote" lang="en">University of Science and<br>Technology of China</p>
+    </aside>
+    <main id="main-content">
+      <section id="about" aria-labelledby="about-heading">
+        <h2 id="about-heading">关于我 <span class="en" lang="en">ABOUT</span></h2>
+        <p class="intro">你好，我是董梓涵，现为中国科学技术大学信息安全专业本科生。这里记录我的学习方向、开源参与和校园实践。</p>
+      </section>
+      <section id="interests" aria-labelledby="interests-heading">
+        <h2 id="interests-heading">研究兴趣 <span class="en" lang="en">INTERESTS</span></h2>
+        <p>我对人工智能安全与计算机视觉感兴趣，关注视觉识别模型的鲁棒性、对抗攻击与防御，以及大语言模型和多模态系统的可靠性与安全评测。</p>
+        <p>希望通过课程学习、开源实践与可复现实验，逐步探索可信人工智能的方法。</p>
+        <ul class="interests" aria-label="研究兴趣">
+          <li>人工智能安全</li><li>计算机视觉</li><li>模型可靠性</li>
+        </ul>
+      </section>
+      <section id="education" aria-labelledby="education-heading">
+        <h2 id="education-heading">教育背景 <span class="en" lang="en">EDUCATION</span></h2>
+        <div class="entry-heading"><h3>中国科学技术大学</h3><span class="date">2025.09 — 至今</span></div>
+        <p class="detail">网络空间安全学院 · 信息安全 · 本科</p>
+        <p class="courses"><span class="course-label">主修课程</span>计算机程序设计、数据结构及其算法、力学 B</p>
+      </section>
+      <section id="projects" aria-labelledby="projects-heading">
+        <h2 id="projects-heading">开源参与 <span class="en" lang="en">OPEN SOURCE</span></h2>
+        <p class="section-note">从问题反馈、修复提交与学习资料共享中积累实践经验。</p>
+        <article class="project">
+          <div class="entry-heading"><h3><a href="https://github.com/NullumNomen/astrbot_plugin_fishing">AstrBot Fishing Plugin</a></h3><span class="project-kind">机器人插件</span></div>
+          <p>面向 AstrBot 的钓鱼游戏插件，提供群聊中的游戏交互与鱼获管理。</p>
+          <p class="contribution">提交鱼饵重量与价值修正机制的修复 PR，参与开源问题处理与代码协作。</p>
+          <div class="project-links"><a href="https://github.com/NullumNomen/astrbot_plugin_fishing">项目仓库<span class="arrow" aria-hidden="true">↗</span></a><a href="https://github.com/NullumNomen/astrbot_plugin_fishing/pull/131">修复 PR #131<span class="arrow" aria-hidden="true">↗</span></a></div>
+        </article>
+        <article class="project">
+          <div class="entry-heading"><h3><a href="https://ustcmathexam.github.io/">USTC 数学课考卷合集</a></h3><span class="project-kind">学习资源共享</span></div>
+          <p>面向科大学生的数学课程往年试卷资源，按课程方向整理，支持学习与复习。</p>
+          <p class="contribution">参与试卷资料共享，列入站点 2025 级贡献者致谢名单。</p>
+          <div class="project-links"><a href="https://ustcmathexam.github.io/">访问站点与致谢名单<span class="arrow" aria-hidden="true">↗</span></a></div>
+        </article>
+        <article class="project">
+          <div class="entry-heading"><h3><a href="https://github.com/MaaEnd/MaaEnd">MaaEnd</a></h3><span class="project-kind">视觉自动化工具</span></div>
+          <p>基于 MaaFramework 的《明日方舟：终末地》自动化助手，通过视觉识别完成日常任务与辅助操作。</p>
+          <p class="contribution">参与项目使用反馈与 PR 协作，在实践中了解视觉识别驱动的自动化流程。</p>
+          <div class="project-links"><a href="https://github.com/MaaEnd/MaaEnd">项目仓库<span class="arrow" aria-hidden="true">↗</span></a></div>
+        </article>
+      </section>
+      <section id="service" aria-labelledby="service-heading">
+        <h2 id="service-heading">校园实践 <span class="en" lang="en">SERVICE</span></h2>
+        <div class="entry-heading"><h3>校团委 · 青年权益中心</h3><span class="date">2025.09 — 2026.09</span></div>
+        <p class="detail">联络部副部长</p>
+      </section>
+    </main>
+  </div>
+  <footer class="site-footer"><span>© 2026 董梓涵 · Zihan Dong</span><span>更新于 2026.09 · <a href="https://github.com/AlphaZero78">GitHub</a></span></footer>
+</body>
+</html>

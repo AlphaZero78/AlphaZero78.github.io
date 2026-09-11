@@ -1,0 +1,31 @@
+{
+  "name": "homepage-rhine-lab",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "node scripts/export-records.mjs",
+    "dev": "vite --host 127.0.0.1 --port 18782 --strictPort",
+    "prebuild": "node scripts/export-records.mjs",
+    "check:content": "node --experimental-strip-types --test scripts/check-content.mjs",
+    "check:viewport": "node --experimental-strip-types scripts/check-viewport.mjs",
+    "export:archives": "node scripts/export-records.mjs",
+    "build": "tsc && vite build && node scripts/build-pwa.mjs",
+    "format": "prettier --write src scripts index.html package.json tsconfig.json",
+    "preview": "vite preview --host 127.0.0.1 --port 18782 --strictPort",
+    "package": "npm run build && node scripts/package-release.mjs",
+    "check:release": "node scripts/check-release.mjs"
+  },
+  "dependencies": {
+    "@kitlangton/rolling-number": "0.4.1",
+    "three": "^0.183.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.183.0",
+    "prettier": "^3.9.6",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  },
+  "description": "Zihan Dong personal archive — RhineLabUI inspired experimental homepage"
+}

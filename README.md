@@ -1,23 +1,33 @@
-# 董梓涵 · Zihan Dong
+# 董梓涵 · PERSONAL ARCHIVE
 
-欢迎来到我的个人主页。
+这里是董梓涵的个人主页。
 
-我是中国科学技术大学网络空间安全学院信息安全专业本科生，关注人工智能安全、计算机视觉与模型可靠性，也通过开源协作和校园实践积累经验。
+以三维档案为载体，记录我的教育背景、项目参与和校园经历。浅色界面、橙色细节与玻璃质感共同构成这份可交互的个人档案。
 
-**[访问个人主页](https://alphazero78.github.io/)** · [GitHub](https://github.com/AlphaZero78) · [邮件联系](mailto:dzh_alpha@mail.ustc.edu.cn)
+[三维主页](https://alphazero78.github.io/) · [个人概览](https://alphazero78.github.io/profile.html) · [GitHub](https://github.com/AlphaZero78) · [邮件联系](mailto:dzh_alpha@mail.ustc.edu.cn)
 
-## 关于这个主页
+## 档案内容
 
-这里记录我的教育背景、研究兴趣、开源参与和校园经历。页面采用简洁的中文排版，支持桌面与移动端阅读。
+- **基本介绍**：关于我与当前关注的方向。
+- **教育背景**：学校、专业与学习经历。
+- **项目经历**：AstrBot 钓鱼插件、USTC 数学课考卷合集、MaaEnd 等开源项目中的具体参与。
+- **校园经历**：青年权益中心的任职与校园实践。
+- **联系方式**：邮箱、GitHub 与个人主页。
 
-## 开源参与
+## 浏览体验
 
-- **[AstrBot 钓鱼插件](https://github.com/NullumNomen/astrbot_plugin_fishing)**：提交鱼饵重量与价值修正、商店排序修复相关 [PR #131](https://github.com/NullumNomen/astrbot_plugin_fishing/pull/131)。
-- **[USTC 数学课考卷合集](https://ustcmathexam.github.io/)**：参与试卷资料共享，列入站点贡献者致谢名单。
-- **[MaaEnd](https://github.com/MaaEnd/MaaEnd)**：通过 Issue 与 Pull Request 参与使用反馈和项目协作。
+从开场动画进入档案阵列，选择并读取不同经历；也可以通过醒目的概览入口阅读完整介绍。概览保留了原个人主页的内容与版式。阅读档案时，滚轮会串联收起、移位与展开动画，向前或向后浏览经历。正文较长时优先滚动文字，到边界后再切换档案。
 
-## 联系
+页面提供档案检索、收藏、文本导出和三维模型查看，支持桌面与移动端浏览。
 
-欢迎就课程学习、人工智能安全、计算机视觉和开源项目交流。
+三维场景保留玻璃材质、档案抽取与模型拆解效果，同时提供画质选择和空闲暂停。独立阅读页则以简洁排版呈现个人信息。
 
-邮箱：[dzh_alpha@mail.ustc.edu.cn](mailto:dzh_alpha@mail.ustc.edu.cn)
+## 技术
+
+使用 **TypeScript、Three.js 与 Vite** 构建的静态个人网站。
+
+## 致谢与许可
+
+本项目基于 [LBEILC / RhineLabUI](https://github.com/LBEILC/RhineLabUI) 改编，沿用了其三维档案场景、视觉语言与交互基础，并加入个人内容与阅读页面。感谢原作者的开源工作。
+
+字体使用小米 **MiSans**。上游 MIT 许可与第三方素材声明均予以保留，详见 [LICENSE](LICENSE) 与[来源说明](docs/UPSTREAM.md)。
