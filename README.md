@@ -1,39 +1,23 @@
 # 董梓涵 · Zihan Dong
 
-个人学术主页，目标地址：<https://alphazero78.github.io/>。
+欢迎来到我的个人主页。
 
-## 内容与文件
+我是中国科学技术大学网络空间安全学院信息安全专业本科生，关注人工智能安全、计算机视觉与模型可靠性，也通过开源协作和校园实践积累经验。
 
-- `index.html`：中文个人主页及内联样式，无第三方脚本、字体请求或构建依赖。
-- `portrait.png`：由原始照片裁取的头肩照，清理背景、局部去除手机遮挡并轻微提亮面部；不重绘面部或改变人物比例。
-- `.nojekyll`：将仓库作为纯静态网站发布。
+**[访问个人主页](https://alphazero78.github.io/)** · [GitHub](https://github.com/AlphaZero78) · [邮件联系](mailto:dzh_alpha@mail.ustc.edu.cn)
 
-页面包含教育背景、研究兴趣、开源参与及校园实践。邮箱为 `dzh_alpha@mail.ustc.edu.cn`，GitHub 为 `AlphaZero78`。
+## 关于这个主页
 
-## 内容维护
+这里记录我的教育背景、研究兴趣、开源参与和校园经历。页面采用简洁的中文排版，支持桌面与移动端阅读。
 
-直接编辑 `index.html` 即可。项目经历聚焦具体贡献、修复内容和协作方式，并附对应项目或贡献记录的链接；研究兴趣围绕人工智能安全、计算机视觉与模型可靠性展开。
+## 开源参与
 
-公开页面不包含手机号、出生年月、籍贯、政治面貌、排名、课程成绩及完整简历 PDF。
+- **[AstrBot 钓鱼插件](https://github.com/NullumNomen/astrbot_plugin_fishing)**：提交鱼饵重量与价值修正、商店排序修复相关 [PR #131](https://github.com/NullumNomen/astrbot_plugin_fishing/pull/131)。
+- **[USTC 数学课考卷合集](https://ustcmathexam.github.io/)**：参与试卷资料共享，列入站点贡献者致谢名单。
+- **[MaaEnd](https://github.com/MaaEnd/MaaEnd)**：通过 Issue 与 Pull Request 参与使用反馈和项目协作。
 
-## 本地预览
+## 联系
 
-在本目录启动任意静态 HTTP 服务器，例如：
+欢迎就课程学习、人工智能安全、计算机视觉和开源项目交流。
 
-```text
-python -m http.server 8765
-```
-
-然后访问 <http://127.0.0.1:8765/>。也可直接打开 `index.html` 查看内容。
-
-## GitHub Pages
-
-网站文件位于仓库根目录时，在仓库 Pages 设置中选择实际发布分支及根目录。账户主页仓库名称应为 `AlphaZero78.github.io`。部署和线上验收由发布流程执行。
-
-## 公开来源
-
-- [AstrBot Fishing Plugin PR #131](https://github.com/NullumNomen/astrbot_plugin_fishing/pull/131)
-- [USTC 数学课考卷合集与致谢名单](https://ustcmathexam.github.io/)
-- [MaaEnd](https://github.com/MaaEnd/MaaEnd)
-
-内容更新：2026-09-10。
+邮箱：[dzh_alpha@mail.ustc.edu.cn](mailto:dzh_alpha@mail.ustc.edu.cn)
