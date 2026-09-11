@@ -141,13 +141,11 @@ function readLocal<T>(key: string, fallback: T): T {
 const saved = new Set<string>(readLocal<string[]>("alphazero-rhine-saved-v2", []));
 const storedPrefs = readLocal<Partial<{ sound: boolean; music: boolean; soundVolume: number; musicVolume: number; reduced: boolean; quality: boolean; rendering: RenderQuality }>>("alphazero-rhine-settings-v1", {});
 const prefs = {
-  sound: false,
-  music: false,
-  soundVolume: .55,
-  musicVolume: .5,
   reduced: matchMedia("(prefers-reduced-motion: reduce)").matches,
   quality: true,
   ...storedPrefs,
+  // v1 also stored automatic silent-entry choices; v2 records explicit settings.
+  ...readLocal("alphazero-rhine-audio-v2", { sound: true, music: true, soundVolume: .55, musicVolume: .5 }),
   rendering: normalizeQuality(readLocal<RenderQuality>("alphazero-rhine-rendering-v2", qualityPresets.performance)),
 };
 const rollingMotion = {
@@ -214,7 +212,8 @@ $("#stage").inert = true;
 $(".mobile-entry").inert = true;
 const entry = !reviewEntry ? new StartupGate({
   root: loading,
-  unlock: () => prefs.sound || prefs.music ? audio.unlock() : Promise.resolve(true),
+  audible: () => (prefs.sound && prefs.soundVolume > 0) || (prefs.music && prefs.musicVolume > 0),
+  unlock: () => audio.unlock(),
   cancel: () => audio.cancelEntry(),
   start: (silent, skipBoot) => completeStartup(silent, skipBoot),
 }) : undefined;
@@ -233,7 +232,10 @@ function recordAccess() {
     time: new Date().toLocaleTimeString("en-GB"),
   });
 }
-function saveAudioPrefs() {
+function saveAudioPrefs(explicit = false) {
+  if (explicit) {
+    try { localStorage.setItem("alphazero-rhine-audio-v2", JSON.stringify({ sound: prefs.sound, music: prefs.music, soundVolume: prefs.soundVolume, musicVolume: prefs.musicVolume })); } catch {}
+  }
   try {
     localStorage.setItem("alphazero-rhine-settings-v1", JSON.stringify(prefs));
     localStorage.setItem("alphazero-rhine-rendering-v2", JSON.stringify(prefs.rendering));
@@ -697,7 +699,7 @@ document.addEventListener("input", (e) => {
   if (volume.dataset.volume === "musicVolume" || volume.dataset.volume === "soundVolume") {
     prefs[volume.dataset.volume] = Number(volume.value) / 100;
     volume.closest("label")?.querySelector("output")?.replaceChildren(`${volume.value}%`);
-    saveAudioPrefs();
+    saveAudioPrefs(true);
   }
   if ((e.target as HTMLElement).id === "archive-search") {
     searchQuery = (e.target as HTMLInputElement).value;
@@ -717,7 +719,7 @@ document.addEventListener("change", (e) => {
   if (el.dataset.pref) {
     const key = el.dataset.pref;
     if (key === "sound" || key === "music" || key === "reduced" || key === "quality") prefs[key] = el.checked;
-    if (key === "sound" || key === "music") saveAudioPrefs(); else savePrefs();
+    if (key === "sound" || key === "music") saveAudioPrefs(true); else savePrefs();
     if (key === "reduced") $("#motion-preference-note").outerHTML = motionSettingsMarkup();
     audio.play("confirm");
   }
@@ -1099,7 +1101,7 @@ function completeStartup(silent: boolean, skipBoot = false) {
   if (silent) {
     prefs.sound = false;
     prefs.music = false;
-    saveAudioPrefs();
+    audio.configure(prefs);
   }
   audio.releaseEntry();
   audio.restartBoot();

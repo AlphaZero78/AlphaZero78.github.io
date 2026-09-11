@@ -308,6 +308,7 @@ export class TerminalAudio {
   };
   private context?: AudioContext;
   private effects?: GainNode;
+  private outputMeter?: AnalyserNode;
   private musicBus?: GainNode;
   private duck?: GainNode;
   private stemGains: GainNode[] = [];
@@ -432,7 +433,10 @@ export class TerminalAudio {
     this.musicBus.connect(this.duck);
     this.duck.connect(master);
     master.connect(limiter);
-    limiter.connect(c.destination);
+    this.outputMeter = c.createAnalyser();
+    this.outputMeter.fftSize = 256;
+    limiter.connect(this.outputMeter);
+    this.outputMeter.connect(c.destination);
     this.stemGains = STEMS.map(() => {
       const gain = c.createGain();
       gain.gain.value = 0;
@@ -621,7 +625,11 @@ export class TerminalAudio {
     if (hasTypingBetween(previous, time)) this.play("key");
   }
   stats() {
+    const samples = new Float32Array(256);
+    this.outputMeter?.getFloatTimeDomainData(samples);
+    const outputRms = Math.sqrt(samples.reduce((sum, value) => sum + value * value, 0) / samples.length);
     return {
+      outputRms,
       state: this.context?.state ?? "locked",
       scene: this.scene,
       tracks: this.tracks.length,
