@@ -4,7 +4,9 @@
   "original_sha256": "81dece260d0542b073fe9b1d0a3afaa302e200a4fabdb81b888db50d428c020d",
   "changes": [
     "Overview title and canonical URL",
-    "Return link to the 3D homepage"
+    "Return link to the 3D homepage",
+    "Background aligned with archive homepage",
+    "Short fade transitions; return directly to archive without opening film"
   ],
   "content_preserved": true
 }

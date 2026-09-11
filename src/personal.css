@@ -4,6 +4,7 @@
 .brand p { justify-content: flex-start; gap: 14px; white-space: nowrap; font-size: 30px; }
 .brand-personal { font-kerning: normal; letter-spacing: .015em; }
 .archive-navigation { display: none; }
+.overview-handoff .entry-shell { display: none; }
 .system-nav { gap: 35px; }
 .system-nav .profile-nav { color: #854309; }
 .profile-glyph { display: inline-block; font-size: 23px; width: 23px; line-height: 1; }

@@ -37,6 +37,7 @@ const $ = <T extends HTMLElement = HTMLElement>(selector: string) =>
 import { logo, brandHeading } from "./brand";
 import { RenderBudget } from "./render-budget";
 import { ArchiveJourney } from "./archive-journey";
+import { navigateWithFade } from "./page-transition";
 const renderBudget = new RenderBudget();
 const archiveJourney = new ArchiveJourney();
 
@@ -202,6 +203,10 @@ audio.configure(prefs);
 const reviewEntry = reviewParams.has("scene") || reviewParams.has("time") || reviewParams.get("review") === "1" || requestedIndex >= 0;
 let started = false;
 const loading = $("#loading");
+if (reviewParams.get("from") === "overview") {
+  loading.classList.add("overview-handoff");
+  loading.querySelector(":scope > span")!.textContent = "正在打开个人档案…";
+}
 // The entry screen uses the actual viewport, including portrait phones; the
 // reference animation still uses its calibrated 1920 x 1080 stage.
 $("#viewport").append(loading);
@@ -788,7 +793,7 @@ document.addEventListener("click", (e) => {
     openModal(action);
   }
   if (action === "close-modal") closeModal();
-  if (action === "profile") location.assign(assetUrl("profile.html"));
+  if (action === "profile") void navigateWithFade(assetUrl("profile.html"));
   if (action === "bookmark") toggleSaved();
   if (action === "reset-search") {
     modal = "search";
