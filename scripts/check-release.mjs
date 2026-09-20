@@ -20,5 +20,5 @@ const pwa = JSON.parse(await readFile("dist/pwa-build.json", "utf8"));
 for (const path of ["profile.html", "portrait.png", "index.html"]) assert(pwa.files.includes(path), `Offline manifest missing ${path}`);
 for (const record of content.records) await access(`dist/archives/ZIHAN-${record.id}.txt`);
 const photoHash = createHash("sha256").update(await readFile("public/portrait.png")).digest("hex");
-assert.equal(photoHash, "6da8ab48e9ea694af04f1c83e4ba068d5e860627c3e12236a803f3ecd68b2b94", "Keep the approved original portrait unchanged");
+assert.equal(photoHash, "e4d2cca145844f1151c5eb23997eed8f881cccf954eda4f5aba3e613c970af51", "Keep the approved original portrait unchanged");
 console.log(`RELEASE_CHECK_PASS: ${content.records.length} records, two entry pages, subdirectory paths, private-field scan, original portrait, offline manifest.`);

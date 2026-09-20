@@ -541,7 +541,7 @@ function renderDetail() {
   setTab(activeTab, false);
 }
 function overview() {
-  return `${records[selected].id === "X-001" ? `<img class="record-portrait" src="${assetUrl("portrait.png")}" width="570" height="760" alt="董梓涵" />` : ""}<div class="panel-label">OVERVIEW / 概述</div><p>${escapeHtml(records[selected].abstract)}</p>`;
+  return `${records[selected].id === "X-001" ? `<img class="record-portrait" src="${assetUrl("portrait.png?v=20260920")}" width="1774" height="2263" alt="董梓涵" />` : ""}<div class="panel-label">OVERVIEW / 概述</div><p>${escapeHtml(records[selected].abstract)}</p>`;
 }
 function setTab(tab: string, sound = true) {
   if (sound && tab === activeTab) return;
