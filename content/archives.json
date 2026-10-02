@@ -105,52 +105,52 @@
       "id": "X-003",
       "title": "项目经历",
       "en": "PROJECT EXPERIENCE",
-      "department": "开源参与与协作",
+      "department": "软件开发与项目协作",
       "category": "项目经历",
-      "date": "约 2026.05 起",
-      "lead": "AstrBot · 数学课考卷合集 · MaaEnd",
+      "date": "2026 年",
+      "lead": "Eleko · 心域防线 · MaaEnd",
       "clearance": "PROJECTS",
-      "abstract": "我通过代码修复、资料共享和使用反馈参与开源协作。以下记录三个项目的用途和我的具体贡献：AstrBot 钓鱼插件、USTC 数学课考卷合集、MaaEnd。",
+      "abstract": "我的项目实践涵盖电路设计 AI 助手、离线浏览器游戏与视觉自动化工具，分别记录 Eleko、心域防线和 MaaEnd 的功能与参与工作。",
       "findings": [
-        "AstrBot 钓鱼插件：面向 AstrBot 的钓鱼游戏插件，提供鱼获管理、背包、交易市场及 Web 管理等功能。我通过问题反馈和修复提交参与项目协作，提交了鱼饵重量与价值修正、商店排序修复相关 PR。",
-        "数学课考卷合集：USTC 数学课考卷合集按课程类别整理往年数学试卷，为科大学生提供学习与复习资源。我参与试卷资料共享，姓名收录于站点 2025 级贡献者致谢名单。",
+        "Eleko（electrical-design-agent）：面向电路原理图设计的 AI 助手，结合自然语言交互、器件检索、自动布局布线与规则校验，支持导出嘉立创 EDA 工程。参与 Windows 启动依赖自动准备、模型客户端复用、器件库检索与缓存优化，以及 Agent 提示词和上下文统计模块重构。",
+        "心域防线（Mindrealm Bastion）：离线浏览器像素肉鸽塔防游戏，以三幕分支路线、构造养成和持久战场组织游戏进程。开发固定时间步长战斗、种子驱动路线与本地存档，结合 Canvas 呈现和 Web Audio 音频，完成 Windows 便携包发布。",
         "MaaEnd：MaaEnd 基于 MaaFramework 与 MXU，通过画面识别和任务流程编排提供《明日方舟：终末地》的日常操作辅助。我通过使用反馈与 PR 协作参与项目，在实践中了解视觉识别驱动的自动化流程。"
       ],
       "source": "https://github.com/AlphaZero78",
       "links": [
         {
-          "label": "项目仓库",
-          "url": "https://github.com/NullumNomen/astrbot_plugin_fishing"
+          "label": "Eleko 项目仓库",
+          "url": "https://github.com/Cinnamanthus/electrical-design-agent"
         },
         {
-          "label": "贡献 PR #131",
-          "url": "https://github.com/NullumNomen/astrbot_plugin_fishing/pull/131"
+          "label": "心域防线项目仓库",
+          "url": "https://github.com/AlphaZero78/mindrealm-bastion"
         },
         {
-          "label": "查看考卷合集与致谢名单",
-          "url": "https://ustcmathexam.github.io/"
+          "label": "心域防线 Windows 版",
+          "url": "https://github.com/AlphaZero78/mindrealm-bastion/releases/tag/v0.1.0"
         },
         {
-          "label": "项目仓库",
+          "label": "MaaEnd 项目仓库",
           "url": "https://github.com/MaaEnd/MaaEnd"
         }
       ],
       "resumeFields": [
         {
           "label": "参与项目",
-          "value": "AstrBot 钓鱼插件、数学课考卷合集、MaaEnd"
+          "value": "Eleko、心域防线、MaaEnd"
         },
         {
-          "label": "参与方式",
-          "value": "代码修复、资料共享、使用反馈"
+          "label": "主要实践",
+          "value": "桌面应用优化、游戏开发与发布、视觉自动化协作"
         },
         {
-          "label": "参与时间",
-          "value": "约 2026.05 起"
+          "label": "项目时间",
+          "value": "Eleko：2026.09 起；心域防线：2026.08 起；MaaEnd：约 2026.05 起"
         },
         {
-          "label": "个人贡献",
-          "value": "修复提交、试卷资料共享、Issue 与 PR 协作"
+          "label": "技术方向",
+          "value": "Rust / Tauri / Vue / TypeScript / JavaScript / Canvas"
         }
       ]
     },
