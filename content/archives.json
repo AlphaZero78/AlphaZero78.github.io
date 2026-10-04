@@ -112,9 +112,9 @@
       "clearance": "PROJECTS",
       "abstract": "我的项目实践涵盖电路设计 AI 助手、离线浏览器游戏与视觉自动化工具，分别记录 Eleko、心域防线和 MaaEnd 的功能与参与工作。",
       "findings": [
-        "Eleko（electrical-design-agent）：面向电路原理图设计的 AI 助手，结合自然语言交互、器件检索、自动布局布线与规则校验，支持导出嘉立创 EDA 工程。参与 Windows 启动依赖自动准备、模型客户端复用、器件库检索与缓存优化，以及 Agent 提示词和上下文统计模块重构。",
-        "心域防线（Mindrealm Bastion）：离线浏览器像素肉鸽塔防游戏，以三幕分支路线、构造养成和持久战场组织游戏进程。开发固定时间步长战斗、种子驱动路线与本地存档，结合 Canvas 呈现和 Web Audio 音频，完成 Windows 便携包发布。",
-        "MaaEnd：MaaEnd 基于 MaaFramework 与 MXU，通过画面识别和任务流程编排提供《明日方舟：终末地》的日常操作辅助。我通过使用反馈与 PR 协作参与项目，在实践中了解视觉识别驱动的自动化流程。"
+        "Eleko（electrical-design-agent）：面向电路原理图设计的桌面 AI 助手，通过自然语言交互串联器件检索、自动布局布线与规则校验，并将设计结果导出为嘉立创 EDA 工程。参与 Windows 启动依赖自动准备、模型客户端复用、器件库检索与缓存优化，以及 Agent 提示词和上下文统计模块重构。",
+        "心域防线（Mindrealm Bastion）：像素风肉鸽塔防游戏，玩家沿三幕分支路线收集与升级构造，在持久战场上部署单位、规划通路和防线；支持浏览器运行与 Windows 便携启动。开发固定时间步长战斗、种子驱动路线与本地存档，结合 Canvas 呈现和 Web Audio 音频，完成 Windows 便携包发布。",
+        "MaaEnd：基于 MaaFramework 与 MXU 的《明日方舟：终末地》自动化助手，结合视觉识别与任务流程编排，提供日常任务执行和重复操作辅助。我通过使用反馈与 PR 协作参与项目，在实践中了解视觉识别驱动的自动化流程。"
       ],
       "source": "https://github.com/AlphaZero78",
       "links": [
